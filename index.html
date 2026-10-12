@@ -28,9 +28,6 @@
     padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { --page-bg: #ffffff; }
-  }
   :root[data-theme="dark"] { --page-bg: #18060a; }
 
   html { scroll-padding-top: env(safe-area-inset-top, 0px); height: 100%; }
@@ -53,8 +50,7 @@
   /* ---------- Phone frame ---------- */
   .app {
     --p: 0;
-    position: relative;Mobile number/viber/whats app
-09178619921
+    position: relative;
     width: min(390px, 100%);
     height: min(844px, 100vh);
     background: #000;
@@ -162,6 +158,12 @@
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 18px 38px rgba(0,0,0,0.22);
   }
   .section-title { margin: 24px 4px 10px; font-size: 15px; font-weight: 700; color: #f9dfe5; letter-spacing: 0.06em; text-transform: uppercase; }
+  .logo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .logo-card {
+    min-width: 0; padding: 10px; border: 1px solid rgba(255,255,255,0.06); border-radius: 16px;
+    background: rgba(255,255,255,0.04); text-align: center;
+  }
+  .logo-card img { width: 100%; aspect-ratio: 1; object-fit: contain; display: block; border-radius: 10px; }
 
   .row {
     display: flex; align-items: center; gap: 14px; width: 100%;
@@ -231,6 +233,14 @@
       <div class="group" id="details"></div>
       <h3 class="section-title">Social media</h3>
       <div class="group" id="socials"></div>
+      <h3 class="section-title">Teams &amp; organizations</h3>
+      <div class="logo-grid" aria-label="Teams and organizations">
+        <div class="logo-card"><img src="logos/image.png" alt="Capital1 Solar Spikers logo"></div>
+        <div class="logo-card"><img src="logos/sanctuary.png" alt="Sanctuary Performance logo"></div>
+        <div class="logo-card"><img src="logos/oark.png" alt="Justin Aquino Fitness and Performance logo"></div>
+        <div class="logo-card"><img src="logos/justin.png" alt="Gameville Central Park logo"></div>
+        <div class="logo-card"><img src="logos/vill.png" alt="Gameville Ball Park logo"></div>
+      </div>
     </div>
   </section>
 
@@ -546,7 +556,6 @@ app.addEventListener('wheel', e => {
 
 /* Buttons + keyboard */
 document.getElementById('openBtn').addEventListener('click', () => snap(true));
-document.getElementById('closeBtn').addEventListener('click', () => snap(false));
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && open) snap(false);
   if (e.key === 'ArrowUp' && !open && document.activeElement === document.body) snap(true);
