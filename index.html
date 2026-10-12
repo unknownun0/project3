@@ -272,7 +272,6 @@ const DEFAULTS = {
   contact3Label: 'WhatsApp',
   contact3Value: '09178619921',
   viber: '09178619921',
-  address: '39, Buenconsejo st brgy plainview Mandaluyong city',
   gmail: 'justin_aquino94@yahoo.com',
   gmail2: '',
   photo: 'IMG_9189.jpg',
@@ -410,7 +409,6 @@ function saveContact() {
     ...[...new Set([P.contact1Value, P.contact2Value, P.contact3Value].filter(Boolean))].map(value => `TEL;TYPE=CELL:${escapeVCard(value)}`),
     `gmail;TYPE=INTERNET:${escapeVCard(P.gmail)}`,
     `gmail;TYPE=INTERNET:${escapeVCard(P.gmail2)}`,
-    `ADR;TYPE=WORK:;;${escapeVCard(P.address)};;;;`,
     `URL:${escapeVCard(P.social.facebook)}`,
     `X-SOCIALPROFILE;TYPE=facebook:${escapeVCard(P.social.facebook)}`,
     `X-SOCIALPROFILE;TYPE=facebook:${escapeVCard(P.social.facebookPage)}`,
@@ -449,8 +447,6 @@ document.getElementById('details').append(
     value,
     href: 'tel:' + digits(value)
   }) : []),
-  row({ icon: 'pin',     label: 'Address',        value: P.address,
-        href: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(P.address) }),
   row({ icon: 'mail',    label: 'gmail',          value: P.gmail,  href: 'mailto:' + P.gmail }),
 )
 
